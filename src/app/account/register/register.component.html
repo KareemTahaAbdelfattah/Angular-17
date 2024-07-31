@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="register.component.scss">
+</head>
+<body>
+    <h1>Register Now</h1>
+    <form method="row" [formGroup]="form">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" formControlName="userName" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" formControlName="Email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" formControlName="Password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" id="confirm_password" formControlName="PasswordConfirm" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Register">
+        </div>
+    </form>
+    <br>
+    <hr>
+    <div class="alert alert-danger">
+        {{form.value | json}}
+    </div>
+    <div class="alert alert-danger">
+        {{form.get('PasswordConfirm') | json}}
+    </div>
+</body>
+</html>

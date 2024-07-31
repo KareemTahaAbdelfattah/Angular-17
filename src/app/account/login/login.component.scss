@@ -1,0 +1,9 @@
+::ng-deep{
+    .ng-valid{
+        &.ng-dirty{
+            .Timor{
+                color: green($color: #390bb6);
+            }
+        }
+    }
+}

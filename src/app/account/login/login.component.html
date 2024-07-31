@@ -1,0 +1,25 @@
+<form class="text-center mx-auto p-4" style="width: 800px;" #LoginForm="ngForm" (ngSubmit)="Login(LoginForm)">
+    <div class="mb-3">
+        <div class="alert alert-info">
+            <span>
+                {{LoginForm.value | json}}, {{LoginForm.valid}}
+            </span>
+        </div>
+      <label for="exampleInputEmail1" class="form-label Timor">Email address</label>
+      <input type="email" class="form-control Timor" id="exampleInputEmail1" aria-describedby="emailHelp" [ngModel]="loginDto.email" name="email" #email="ngModel" required minlength="10" email
+      (ngModelChange) = "OnEmailChange($event)" [ngModelOptions] = "{updateOn: 'blur', name: 'Email'}">
+      <div id="emailHelp" class="form-control">We'll never share your email with anyone else.</div>
+        @if(email.errors!['required']){
+          <div class="alert alert-danger">
+            {{'validation.requiredMessage' | translate}}
+          </div>
+        }
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" [ngModel]="loginDto.password" name="password" #password="ngModel" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br><hr>
+    <button type="submit" class="btn btn-primary" (click)="getNext()" >Register</button>
+  </form>

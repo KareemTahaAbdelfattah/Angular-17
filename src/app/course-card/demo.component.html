@@ -1,0 +1,38 @@
+<div class="card text-center"
+[ngClass] = "courses.category === categor_Type.beginners ? 'beginner': 'advanced'">
+<div class="card-header">
+  {{courses.name | uppercase}}
+  <div>
+    <ng-content />
+  </div>
+</div>
+<hr>
+<span>Time now: {{date | date}}</span>
+<hr>
+<span>Kareem Angular</span>
+<div class="card-body">
+  <h5 class="card-title" [ngStyle] = "{'color': courses.category === categor_Type.beginners ? 'blue': 'black'}">{{courses.id}}: {{courses.description}}</h5>
+  <img src="assets/Images/angular.png" class="card-img-top" alt="Images" style="width: 50%;">
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  @switch(courses.category){
+    @case(1){
+        <span class="badge bg-warning">Beginners</span>
+    }
+    @case(2){
+        <span class="badge bg-info">Intermediate</span>
+    }
+    @case(3){
+        <span class="badge bg-success">Advanced</span>
+    }
+    @case(4){
+        <span class="badge bg-danger">Other</span>
+    }
+  }
+  <br>
+  <hr>
+  <a href="#" class="btn btn-primary" [routerLink]="['course']" [queryParams] = "{id: courses.id}">Veiw Long Desc</a>
+</div>
+<div class="card-footer text-body-secondary">
+  2 days ago
+</div>
+</div>

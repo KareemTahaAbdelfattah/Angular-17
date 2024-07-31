@@ -1,0 +1,5 @@
+@for(course of courses; track course.id){
+    <app-demo [courses] = "course" [index] = "$index" [title]="data.title">Test</app-demo>
+  }@empty{
+    <h1>There is no data</h1>
+  }
